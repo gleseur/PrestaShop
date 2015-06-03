@@ -1506,7 +1506,7 @@ class WebserviceRequestCore
 						$this->setError(400, 'Parameter "'.$fieldName.'" can\'t be set to the object "'.$this->resourceConfiguration['retrieveData']['className'].'"', 123);
 
 				}
-				elseif (isset($fieldProperties['required']) && $fieldProperties['required'] && !$fieldProperties['i18n'])
+				elseif (isset($fieldProperties['required']) && $fieldProperties['required'] && !$fieldProperties['i18n'] && !$this->method == 'PUT')
 				{
 					$this->setError(400, 'parameter "'.$fieldName.'" required', 41);
 					return false;
